@@ -6,7 +6,7 @@ export default defineConfig({
     vue(),
   ],
   server: {
-    port: 1321,
+    port: 1320,
     host: '0.0.0.0',
   },
 })
