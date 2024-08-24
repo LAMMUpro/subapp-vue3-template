@@ -1,6 +1,7 @@
 <template>
   <div>
     vue3子应用
+    <router-view></router-view>
   </div>
 </template>
 
