@@ -1,4 +1,22 @@
-import { RouteRecordRaw } from "vue-router";
+import { RouteRecordRaw } from 'vue-router';
+
+/**
+ * demo路由
+ */
+const demoRoutes: Array<RouteRecordRaw> = [
+  {
+    path: `/demo/micromainComponent`,
+    name: `micromainComponent`,
+    component: () => import('@/pages/demo/micromainComponent.vue'),
+    meta: {},
+  },
+  {
+    path: `/demo/routeComponent`,
+    name: `routeComponent`,
+    component: () => import('@/pages/demo/routeComponent.vue'),
+    meta: {},
+  },
+];
 
 export const baseRoutes: Array<RouteRecordRaw> = [
   {
@@ -19,4 +37,5 @@ export const baseRoutes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/empty.vue'),
     meta: { hidden: true },
   },
-]
+  ...demoRoutes,
+];

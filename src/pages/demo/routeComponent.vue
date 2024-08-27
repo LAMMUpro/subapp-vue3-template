@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-view></router-view>
+    vue3路由组件demo
   </div>
 </template>
 
@@ -8,6 +8,6 @@
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 /** */
 </style>
