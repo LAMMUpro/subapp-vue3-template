@@ -7,7 +7,8 @@
     "dev": "vite",
     "tsc": "vue-tsc -b",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "s deploy -t s.master.yaml --use-local"
   },
   "dependencies": {
     "vue": "^3.4.29",
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
+    "local-tool": "^1.1.2",
     "typescript": "^5.2.2",
     "vite": "^5.3.1",
     "vue-tsc": "^2.0.21"
