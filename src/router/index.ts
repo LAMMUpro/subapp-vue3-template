@@ -1,5 +1,4 @@
-import { RouteRecordRaw, createRouter, createWebHashHistory } from "vue-router";
-import CONSTS from "../utils/CONSTS";
+import { RouteRecordRaw } from "vue-router";
 
 export const baseRoutes: Array<RouteRecordRaw> = [
   {
@@ -21,11 +20,3 @@ export const baseRoutes: Array<RouteRecordRaw> = [
     meta: { hidden: true },
   },
 ]
-
-
-const router = createRouter({
-  history: createWebHashHistory(`/${CONSTS.PREFIX_URL}/`),
-  routes: baseRoutes,
-});
-
-export default router;
