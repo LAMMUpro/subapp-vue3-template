@@ -30,7 +30,10 @@
       "@/*": [
         "src/*"
       ]
-    }
+    },
+    "types": [
+      "micro-app-utils/types/global.d.ts"
+    ]
   },
   "include": [
     "vite.config.ts",
