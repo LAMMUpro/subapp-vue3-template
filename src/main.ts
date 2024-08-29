@@ -9,6 +9,9 @@ import { parseRoutesMetaParentComponent } from '@/router/helper';
 let app: App<Element> | undefined = undefined;
 let router: Router | undefined = undefined;
 
+/**
+ * 微前端渲染钩子
+ */
 window.mount = () => {
   /** 每次mount需要重新构建路由 */
   router = createRouter({
@@ -23,6 +26,9 @@ window.mount = () => {
   app.mount('#__subapp_vue3');
 }
 
+/**
+ * 微前端卸载钩子
+ */
 window.unmount = () => {
   console.log('vue3卸载')
   app?.unmount();
@@ -30,6 +36,9 @@ window.unmount = () => {
   router = undefined;
 }
 
+/**
+ * 应用独立运行时，直接运行渲染钩子函数
+ */
 if (!isSubApp) {
   window.mount();
 }
