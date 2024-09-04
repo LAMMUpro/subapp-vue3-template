@@ -1,7 +1,7 @@
 <template>
   <div class="micromainComponent">
-    <section class="card lightblue">
-      <p class="title">SvgIcon图标</p>
+    <section class="-m-card lightblue">
+      <span class="-m-title">SvgIcon图标</span>
       <MicroComponent
         _is="SvgIcon"
         style="margin-right: 6px"
@@ -24,8 +24,8 @@
       ></MicroComponent>
     </section>
 
-    <section class="card lightcoral">
-      <p class="title">BaseDialog弹窗</p>
+    <section class="-m-card lightcoral">
+      <span class="-m-title">Dialog弹窗</span>
       <button
         class="btn"
         @click="dataBaseDialog.open()"
@@ -97,35 +97,6 @@ const dataBaseDialog = shallowReactive({
     border-radius: 4px;
     font-size: 14px;
     color: white;
-  }
-}
-.card {
-  border-radius: 4px;
-  padding: 10px 6px;
-  margin-bottom: 10px;
-  &.lightcoral {
-    background-color: lightcoral;
-  }
-  &.lightblue {
-    background-color: lightblue;
-  }
-  .title {
-    position: relative;
-    font-size: 16px;
-    color: #333;
-    font-weight: 600;
-    padding-left: 8px;
-    margin-bottom: 8px;
-    &::after {
-      position: absolute;
-      content: '';
-      top: 50%;
-      left: 0;
-      width: 3px;
-      height: 15px;
-      transform: translate(0, -50%);
-      background-color: #358cff;
-    }
   }
 }
 </style>
