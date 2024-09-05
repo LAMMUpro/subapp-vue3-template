@@ -18,6 +18,12 @@ const demoRoutes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/demo/routeComponent.vue'),
     meta: {},
   },
+  {
+    path: `/home`,
+    name: `home`,
+    component: () => import('@/pages/home.vue'),
+    meta: {},
+  },
 ];
 
 export const baseRoutes: Array<RouteRecordRaw> = [
