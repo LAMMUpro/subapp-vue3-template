@@ -1,7 +1,7 @@
 <template>
   <div class="micromainComponent">
     <section class="-m-card lightblue">
-      <span class="-m-title">SvgIcon图标</span>
+      <span class="-m-title">vue3-SvgIcon图标</span>
       <MicroComponent
         _is="SvgIcon"
         style="margin-right: 6px"
@@ -25,7 +25,7 @@
     </section>
 
     <section class="-m-card lightcoral">
-      <span class="-m-title">Dialog弹窗</span>
+      <span class="-m-title">vue3-Dialog弹窗</span>
       <button
         class="btn"
         @click="dataBaseDialog.open()"
