@@ -33,7 +33,7 @@
         打开弹窗：{{ dataBaseDialog.formInfo.number }}
       </button>
       <MicroComponent
-        _is="BaseDialog"
+        _is="ElDialog"
         v-model="dataBaseDialog.show"
         title="主应用的弹窗"
       >
