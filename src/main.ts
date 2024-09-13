@@ -37,8 +37,10 @@ MicroAppInit<'localhost' | 'test' | 'pre' | 'master'>({
   subAppSettingList: window._subAppSettingList_,
 });
 
-/** 启动微前端 */
-microApp.start({
+/** 
+ * 初始化子应用渲染环境（默认主应用/第一层子应用执行）
+ */
+if (window._subAppSettingList_.find(item => item.name === window.__MICRO_APP_NAME__)) microApp.start({
   tagName: CONSTS.microAppTagName,
   /** 防止子应用请求父应用资源（部署时需要配置这个url指向这个文件） */
   iframeSrc: `/micromain/empty.html`,
