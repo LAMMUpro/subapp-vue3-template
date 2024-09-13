@@ -1,7 +1,7 @@
 import { App, createApp } from 'vue';
 import AppVue from '@/App.vue';
 import { baseRoutes } from '@/router';
-import { isSubApp, sendDataDown, sendDataUp, MicroAppInit } from 'micro-app-utils';
+import { isTopApp, sendDataDown, sendDataUp, MicroAppInit } from 'micro-app-utils';
 import { Router, createRouter, createWebHashHistory } from 'vue-router';
 import CONSTS from '@/utils/CONSTS';
 import { parseRoutesMetaParentComponent } from '@/router/helper';
@@ -112,6 +112,6 @@ window.unmount = () => {
 /**
  * 应用独立运行时，直接运行渲染钩子函数
  */
-if (!isSubApp) {
+if (isTopApp) {
   window.mount();
 }
