@@ -1,6 +1,7 @@
 import { App, createApp } from 'vue';
 import AppVue from '@/App.vue';
 import { baseRoutes } from '@/router';
+import { initRouteInterceptor } from '@/router/interceptor';
 import { isTopApp, sendDataDown, sendDataUp, MicroAppInit } from 'micro-app-utils';
 import { Router, createRouter, createWebHashHistory } from 'vue-router';
 import CONSTS from '@/utils/CONSTS';
@@ -75,10 +76,17 @@ window.mount = () => {
   });
   
   app = createApp(AppVue);
+  /** 路由 */
   app.use(router);
+  /** 
+   * pinia
+   */
   const pinia = createPinia();
   pinia.use(piniaPluginPersistedstate);
   app.use(pinia);
+  /** 初始化权限管理 */
+  initRouteInterceptor(router);
+  /** 挂载 */
   app.mount('#__subapp_vue3');
 
   dataListener = generateDataListener({
