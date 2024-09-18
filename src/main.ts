@@ -8,6 +8,8 @@ import { parseRoutesMetaParentComponent } from '@/router/helper';
 import { generateDataListener } from 'micro-app-utils/listener';
 import { MicroComponentSlotMap } from 'micro-app-utils/data';
 import microApp from '@micro-zoe/micro-app';
+import { createPinia } from 'pinia';
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 
 window._subAppSettingList_ = window.rawWindow?._subAppSettingList_ || [];
 
@@ -74,6 +76,9 @@ window.mount = () => {
   
   app = createApp(AppVue);
   app.use(router);
+  const pinia = createPinia();
+  pinia.use(piniaPluginPersistedstate);
+  app.use(pinia);
   app.mount('#__subapp_vue3');
 
   dataListener = generateDataListener({
