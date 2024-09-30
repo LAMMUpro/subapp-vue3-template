@@ -124,8 +124,8 @@
 
     <section class="-m-card lightcoral">
       <span class="-m-title">vue3-富文本组件</span>
-      <MicroComponent _is="UseTinymce" v-model="tynymceValue"></MicroComponent>
-      <button @click="() => console.log(tynymceValue)">点击打印对应值</button>
+      <MicroComponent _is="UseTinymce" v-model="tinymceValue"></MicroComponent>
+      <button @click="() => console.log(tinymceValue)">点击打印对应值</button>
     </section>
   </div>
 </template>
@@ -135,7 +135,7 @@ import MicroComponent from 'micro-app-utils/vue3/MicroComponent.vue';
 import { reactive, ref } from 'vue';
 import { shallowReactive } from 'vue';
 
-const tynymceValue = ref('<div> <h1><strong>更新历史</strong></h1> <h2>1.2.0（排期中）</h2> <div>- 项目解耦</div> <div>&nbsp; - 将micro-app-utils独立成一个npm库</div> <div>- 动态菜单</div> <br> <h2>1.1.0（开发中）</h2> <div>- [wwj]react18子应用</div> <div>&nbsp; - 接入路由 ✔</div> <div>&nbsp; &nbsp; - 路由拦截 ✔</div> <div>- [cyc]主应用支持将Element组件注册成派发组件(按需加载) ✔</div> <div>- [cyc]vue2子应用 ✔</div> <div>&nbsp; - 路由 ✔</div> <div>- [cyc]vue3子应用 ✔</div> <div>&nbsp; - 路由 ✔</div> <div>- [cyc]线上demo ✔</div> <div>- [cyc]子应用复用主应用的404/403/login页面（派发组件形式） ✔</div> <div>- [cyc]输入url在线预览网址 ✔</div> <div>- 路由组件优化</div> <div>&nbsp; - 命名唯一性</div> <div>&nbsp; - 解决循环嵌套问题 ✔</div> <div>&nbsp; - 加载状态 ✔</div> <div>&nbsp; - 加载失败处理 ✔</div> <div>- 派发组件优化</div> <div>&nbsp; - 插槽渲染 ✔</div> <div>&nbsp; - 插槽参数传递 ✔</div> <div>&nbsp; - 插槽内数据响应式 ✔</div> <div>&nbsp; - 微前端多层嵌套下的事件穿透 ✔</div> <div>&nbsp; - react插槽局部更新</div> <div>&nbsp; - 销毁时机 ✔</div> <div>- 路由拦截</div> <h2>1.0.0</h2> <div>- 项目初始化</div> <div>&nbsp; - vitest 测试框架 ✔</div> <div>&nbsp; - monorepo 共享 microapp 工具 / shared ... ✔</div> <div>&nbsp; - micro-app-utils 基于 micro-app 的二次封装 ✔</div> <div>&nbsp; - shared 常用模块共享 ✔</div> <div>&nbsp; - sass ✔</div> <div>&nbsp; - router ✔</div> <div>&nbsp; - 公共组件 ✔</div> <div>&nbsp; &nbsp; - svg-icon ✔</div> <div>&nbsp; - Prettier 文件格式化(需要 vscode 安装 Prettier) ✔</div> <div>&nbsp; - eslint 代码规范(需要 vscode 安装 ESLint 2.4.4) ✔</div> <div>&nbsp; - element-plus (组件及样式按需引入) ✔</div> <div>&nbsp; - react18 子应用 ✔</div> </div>');
+const tinymceValue = ref('<div> <h1><strong>更新历史</strong></h1> <h2>1.2.0（排期中）</h2> <div>- 项目解耦</div> <div>&nbsp; - 将micro-app-utils独立成一个npm库</div> <div>- 动态菜单</div> <br> <h2>1.1.0（开发中）</h2> <div>- [wwj]react18子应用</div> <div>&nbsp; - 接入路由 ✔</div> <div>&nbsp; &nbsp; - 路由拦截 ✔</div> <div>- [cyc]主应用支持将Element组件注册成派发组件(按需加载) ✔</div> <div>- [cyc]vue2子应用 ✔</div> <div>&nbsp; - 路由 ✔</div> <div>- [cyc]vue3子应用 ✔</div> <div>&nbsp; - 路由 ✔</div> <div>- [cyc]线上demo ✔</div> <div>- [cyc]子应用复用主应用的404/403/login页面（派发组件形式） ✔</div> <div>- [cyc]输入url在线预览网址 ✔</div> <div>- 路由组件优化</div> <div>&nbsp; - 命名唯一性</div> <div>&nbsp; - 解决循环嵌套问题 ✔</div> <div>&nbsp; - 加载状态 ✔</div> <div>&nbsp; - 加载失败处理 ✔</div> <div>- 派发组件优化</div> <div>&nbsp; - 插槽渲染 ✔</div> <div>&nbsp; - 插槽参数传递 ✔</div> <div>&nbsp; - 插槽内数据响应式 ✔</div> <div>&nbsp; - 微前端多层嵌套下的事件穿透 ✔</div> <div>&nbsp; - react插槽局部更新</div> <div>&nbsp; - 销毁时机 ✔</div> <div>- 路由拦截</div> <h2>1.0.0</h2> <div>- 项目初始化</div> <div>&nbsp; - vitest 测试框架 ✔</div> <div>&nbsp; - monorepo 共享 microapp 工具 / shared ... ✔</div> <div>&nbsp; - micro-app-utils 基于 micro-app 的二次封装 ✔</div> <div>&nbsp; - shared 常用模块共享 ✔</div> <div>&nbsp; - sass ✔</div> <div>&nbsp; - router ✔</div> <div>&nbsp; - 公共组件 ✔</div> <div>&nbsp; &nbsp; - svg-icon ✔</div> <div>&nbsp; - Prettier 文件格式化(需要 vscode 安装 Prettier) ✔</div> <div>&nbsp; - eslint 代码规范(需要 vscode 安装 ESLint 2.4.4) ✔</div> <div>&nbsp; - element-plus (组件及样式按需引入) ✔</div> <div>&nbsp; - react18 子应用 ✔</div> </div>');
 
 const dataBaseDialog = shallowReactive({
   show: false,
