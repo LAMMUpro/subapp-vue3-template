@@ -6,7 +6,7 @@
     >
       <MicroComponent
         class="animation"
-        _is="SvgIcon"
+        _is="UseSvg"
         name="vue"
         size="400px"
       ></MicroComponent>

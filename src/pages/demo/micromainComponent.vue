@@ -1,24 +1,24 @@
 <template>
   <div class="micromainComponent">
     <section class="-m-card lightblue">
-      <span class="-m-title">vue3-SvgIcon图标</span>
+      <span class="-m-title">vue3-UseSvg图标</span>
       <MicroComponent
-        _is="SvgIcon"
+        _is="UseSvg"
         style="margin-right: 6px"
         name="Github"
       ></MicroComponent>
       <MicroComponent
-        _is="SvgIcon"
+        _is="UseSvg"
         style="margin-right: 6px"
         name="arrow-bottom"
       ></MicroComponent>
       <MicroComponent
-        _is="SvgIcon"
+        _is="UseSvg"
         style="margin-right: 6px"
         name="docs-question"
       ></MicroComponent>
       <MicroComponent
-        _is="SvgIcon"
+        _is="UseSvg"
         style="margin-right: 6px"
         name="zhanwei"
       ></MicroComponent>
