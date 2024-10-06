@@ -6,6 +6,12 @@
   <title>vue3</title>
 </head>
 <body>
+  <script>
+    if (!window.__MICRO_APP_ENVIRONMENT__) {
+      document.body.outerHTML = '<h2>暂不支持独立运行子应用, 请在微前端环境中打开该应用!</h2>';
+      window.stop();
+    }
+  </script>
   <div id="__subapp_vue3"></div>
   <script type="module" src="/src/main.ts"></script>
 </body>
