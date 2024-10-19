@@ -2,7 +2,7 @@ import { Router } from "vue-router";
 import { addAsyncRoute } from '.';
 import { isAddedAsyncRoutes, routerTo, updateIsAddedAsyncRoutes } from './hook';
 import { modifyData } from '@/utils';
-import { isSubApp } from 'micro-app-utils';
+import { isSubApp } from 'micro-app-tools';
 import { defaultRoute } from './config';
 import CONSTS from '@/utils/CONSTS';
 import useGlobalStore from '@/store';

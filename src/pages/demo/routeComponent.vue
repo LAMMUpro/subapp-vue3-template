@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-import MicroApp from 'micro-app-utils/vue3/MicroApp.vue';
+import MicroApp from 'micro-app-tools/vue3/MicroApp.vue';
 
 </script>
 

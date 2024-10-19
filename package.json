@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@micro-zoe/micro-app": "1.0.0-rc.8",
-    "micro-app-utils": "workspace:*",
     "vue": "^3.5.1",
     "vue-router": "^4.4.3",
     "pinia": "^2.2.2",

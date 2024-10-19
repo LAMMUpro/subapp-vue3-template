@@ -32,7 +32,7 @@
       ]
     },
     "types": [
-      "micro-app-utils/types/global.d.ts"
+      "micro-app-tools/types/global.d.ts"
     ]
   },
   "include": [

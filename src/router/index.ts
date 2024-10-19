@@ -1,9 +1,9 @@
 import { defineComponent, h } from 'vue';
 import { RouteRecordRaw, Router } from 'vue-router';
-import MicroComponent from 'micro-app-utils/vue3/MicroComponent.vue';
+import MicroComponent from 'micro-app-tools/vue3/MicroComponent.vue';
 import { defaultRoute, defaultRoutePath } from './config';
 import { asyncRoutes, updateAsyncRoutes, updateIsAddedAsyncRoutes } from './hook';
-import { isSubApp } from 'micro-app-utils';
+import { isSubApp } from 'micro-app-tools';
 import { generateRoutes, parseRoutesMetaParentComponent } from './helper';
 import Layout from '@/layouts/index.vue';
 import useGlobalStore from '@/store';

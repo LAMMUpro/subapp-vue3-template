@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import MicroComponent from 'micro-app-utils/vue3/MicroComponent.vue';
+import MicroComponent from 'micro-app-tools/vue3/MicroComponent.vue';
 import { getLottieJsonLink } from '@/utils';
 
 </script>

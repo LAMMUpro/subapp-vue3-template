@@ -1,7 +1,7 @@
 import Layout from '@/layouts/index.vue';
 import { isExternal } from '@/utils';
 import CONSTS from '@/utils/CONSTS';
-import { isTopApp } from 'micro-app-utils';
+import { isTopApp } from 'micro-app-tools';
 import { RouteRecordRaw } from 'vue-router';
 
 const vueFiles = import.meta.glob<typeof import('*.vue')>('../views/**/*.vue');
