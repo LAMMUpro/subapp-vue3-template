@@ -2,11 +2,11 @@ import { App, createApp } from 'vue';
 import AppVue from '@/App.vue';
 import { baseRoutes } from '@/router';
 import { initRouteInterceptor } from '@/router/interceptor';
-import { isTopApp, sendDataDown, sendDataUp, MicroAppInit } from 'micro-app-tools';
+import { isTopApp, sendDataDown, sendDataUp, SubMicroAppInit } from 'micro-app-tools';
 import { Router, createRouter, createWebHashHistory } from 'vue-router';
 import CONSTS from '@/utils/CONSTS';
 import { parseRoutesMetaParentComponent } from '@/router/helper';
-import { generateDataListener } from 'micro-app-tools/listener';
+import { generateDataListener } from 'micro-app-tools/vue3/index';
 import { MicroAppConfig, MicroComponentSlotMap, setMicroAppInitFunction } from 'micro-app-tools/data';
 import microApp from '@micro-zoe/micro-app';
 import { createPinia } from 'pinia';
@@ -20,7 +20,7 @@ MicroAppConfig.subAppSettingList = window._subAppSettingList_;
  */
 setMicroAppInitFunction(() => {
   /** 初始化微前端配置 */
-  MicroAppInit<'localhost' | 'test' | 'pre' | 'master'>({
+  SubMicroAppInit<'localhost' | 'test' | 'pre' | 'master'>({
     env: process.env.NODE_ENV === 'development' ? 'localhost' : 'master',
     tagName: CONSTS.microAppTagName,
     dataListener: generateDataListener({
@@ -49,7 +49,7 @@ setMicroAppInitFunction(() => {
         });
       },
     }),
-    subAppSettingList: window._subAppSettingList_,
+    subAppSettingList: window._subAppSettingList_ || [],
   });
 
   /** 
