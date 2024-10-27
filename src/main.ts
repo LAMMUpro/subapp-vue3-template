@@ -11,6 +11,9 @@ import { MicroAppConfig, MicroComponentSlotMap, setMicroAppInitFunction } from '
 import microApp from '@micro-zoe/micro-app';
 import { createPinia } from 'pinia';
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
+import ElementPlus from 'element-plus';
+import zhCn from 'element-plus/es/locale/lang/zh-cn';
+import 'element-plus/dist/index.css';
 
 window._subAppSettingList_ = window.rawWindow?._subAppSettingList_ || [];
 MicroAppConfig.subAppSettingList = window._subAppSettingList_;
@@ -84,6 +87,10 @@ window.mount = () => {
   app = createApp(AppVue);
   /** 路由 */
   app.use(router);
+  /** element-plus */
+  app.use(ElementPlus, {
+    locale: zhCn
+  });
   /** 
    * pinia
    */

@@ -54,6 +54,12 @@ const demoRoutes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/home.vue'),
     meta: {},
   },
+  {
+    path: `/menuManage`,
+    name: `menuManage`,
+    component: () => import('@/pages/menuManage.vue'),
+    meta: {},
+  },
 ];
 
 /** 
