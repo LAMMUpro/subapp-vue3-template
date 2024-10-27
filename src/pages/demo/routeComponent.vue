@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="-m-card lightgoldenrodyellow">
+    <section class="-m-card">
       <h3 class="-m-title">在vue3中访问react18路由</h3>
       <span>ps：同时react18页面使用了派发组件</span>
     </section>
@@ -13,7 +13,7 @@
       _path="/react18/#/demo/micromainComponent"
     ></MicroApp>
 
-    <section class="-m-card lightgoldenrodyellow">
+    <section class="-m-card">
       <h3 class="-m-title">在vue3中访问vue2路由</h3>
       <span>ps：同时vue2页面使用了派发组件</span>
     </section>
