@@ -1,10 +1,10 @@
 import axios from 'axios';
-
+import Config from './Config';
 
 const service = axios.create({
-  baseURL: '/nest',
-  timeout: 30000
-})
+  baseURL: Config.isLocalhost ? '/nest' : 'https://ali-lowcode.lammu.cn/nest',
+  timeout: 30000,
+});
 
 /** 响应拦截器 */
 service.interceptors.response.use(res => {
