@@ -1,8 +1,10 @@
 <template>
   <div class="menuManage">
     <section class="left">
-      <el-button type="primary" size="small" @click="dataMenuNodeEdit.edit()">新增节点</el-button>
-      <el-scrollbar height="100%">
+      <div class="btn-div">
+        <el-button class="btn" type="primary" size="small" @click="dataMenuNodeEdit.edit()">新增节点</el-button>
+      </div>
+      <el-scrollbar class="scrollbar">
         <el-tree
           class="tree"
           default-expand-all
@@ -55,6 +57,7 @@
         :nodeTreeData="dataMenuManage.menuTreeData"
         @success="dataMenuNodeEdit.success()"
       />
+      <span v-if="!dataMenuNodeView.show && !dataMenuNodeEdit.show" class="text-readonly">点击左侧节点进行操作</span>
     </section>
   </div>
 </template>
@@ -131,14 +134,24 @@ const dataMenuNodeEdit = shallowReactive({
 <style lang="scss" scoped>
 .menuManage {
   display: flex;
-  height: 80vh;
+  height: var(--sub-app-container-height);
   background-color: white;
   overflow: hidden;
   .left {
     flex-basis: calc(10% + 300px);
     flex-shrink: 0;
-    .tree {
-      margin: 10px 14px;
+    .btn-div {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 14px;
+    }
+    .scrollbar {
+      height: calc(100% - 40px);
+      .tree {
+        margin: 10px 14px;
+      }
     }
     .node-label {
       width: 100%;
@@ -154,6 +167,10 @@ const dataMenuNodeEdit = shallowReactive({
     padding: 14px;
     flex: 1;
     border-left: 1px solid #ebebeb;
+  }
+  .text-readonly {
+    color: #716969;
+    font-size: 16px;
   }
 }
 </style>
