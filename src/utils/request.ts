@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Config from './Config';
+import { ElMessage } from 'element-plus';
 
 const service = axios.create({
   baseURL: Config.isLocalhost ? '/nest' : 'https://ali-lowcode.lammu.cn/nest',
@@ -12,6 +13,7 @@ service.interceptors.response.use(res => {
     return res
   }
   let result = res.data;
+  if (result.code === -1 && result.msg) ElMessage.warning(result.msg);
   // 特殊处理一下数据流
   if (['arraybuffer', 'blob'].includes(res.config.responseType!)) {
     result = {
