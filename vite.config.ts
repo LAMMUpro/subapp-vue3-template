@@ -16,6 +16,14 @@ export default defineConfig({
   server: {
     port: CONSTS.PORT,
     host: '0.0.0.0',
+    proxy: {
+      /** request发起的请求都以/nest开头 */
+      '/nest': {
+        target: 'http://localhost:9000',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/nest/,'')
+      },
+    },
   },
   build: {
     outDir: 'build',
