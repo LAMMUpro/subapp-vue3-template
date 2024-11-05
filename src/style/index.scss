@@ -1,0 +1,9 @@
+html {
+  --uno: font-size-16px;
+}
+
+@screen lt-md {
+  html {
+    --uno: font-size-14px;
+  }
+}

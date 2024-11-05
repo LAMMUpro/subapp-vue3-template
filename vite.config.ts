@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue';
 import CONSTS from './src/utils/CONSTS';
 import path from 'path';
 import react from '@vitejs/plugin-react';
+import UnoCSS from 'unocss/vite';
 
 export default defineConfig({
   base: `/${CONSTS.PREFIX_URL}/`,
@@ -12,7 +13,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
     },
   },
-  plugins: [vue(), react(),],
+  plugins: [vue(), react(),UnoCSS(),],
   server: {
     port: CONSTS.PORT,
     host: '0.0.0.0',
