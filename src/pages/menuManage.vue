@@ -113,10 +113,8 @@ const dataMenuManage = shallowReactive({
   menuTreeData: [],
   async getMenuTree() {
     const res = await getMenuTree();
-    console.log('res', res)
     if (res.code == 1) {
       this.menuTreeData = res.data;
-      console.log('res.data', res.data)
     }
   },
 });
