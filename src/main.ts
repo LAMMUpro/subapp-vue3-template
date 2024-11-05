@@ -17,6 +17,7 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn';
 import 'element-plus/dist/index.css';
 import '@/style/index.scss';
 import 'virtual:uno.css';
+import { isPhone } from './hooks';
 
 window._subAppSettingList_ = window.rawWindow?._subAppSettingList_ || [];
 MicroAppConfig.subAppSettingList = window._subAppSettingList_;
@@ -131,6 +132,9 @@ window.mount = () => {
           ],
         })
       }
+    },
+    mediaChange: (_isPhone: boolean) => {
+      isPhone.value = !!_isPhone;
     },
   });
   window.microApp?.addDataListener(dataListener, true);

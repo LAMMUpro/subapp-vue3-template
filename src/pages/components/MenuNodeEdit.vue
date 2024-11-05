@@ -117,15 +117,15 @@
 
     <div class="btn-group">
       <el-button type="primary" @click="dataMenuNodeEdit.submit()">提交</el-button>
-      <el-button type="warning">重置</el-button>
-      <el-button type="default">取消</el-button>
+      <el-button type="warning" @click="dataMenuNodeEdit.reset()">重置</el-button>
+      <el-button type="default" @click="emit('cancel')">取消</el-button>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { addMenu, updateMenu } from '@/api/menu';
-import { ElMessage, FormInstance } from 'element-plus';
+import { ElMessage, FormInstance, ElForm, ElFormItem, ElInput, ElTreeSelect, ElRadio, ElRadioGroup, ElButton, ElSwitch, ElInputNumber, ElSelect, ElOption } from 'element-plus';
 import { PropType } from 'vue';
 import { computed } from 'vue';
 import { shallowReactive, watch } from 'vue';
@@ -145,6 +145,7 @@ const props = defineProps({
 
 const emit = defineEmits<{
   (e: 'success'): void;
+  (e: 'cancel'): void;
 }>();
 
 /** 表单模式： 'add' | 'edit' */
@@ -178,16 +179,20 @@ const dataMenuNodeEdit = shallowReactive({
       }
     });
   },
-});
-
-watch(
-  () => props.nodeData,
-  () => {
+  /** 从组件参数重置表单, 清空校验结果 */
+  reset() {
     dataMenuNodeEdit.nodeData = shallowReactive({
       sort: 0,
       ...props.nodeData,
     });
     dataMenuNodeEdit.ref?.clearValidate();
+  },
+});
+
+watch(
+  () => props.nodeData,
+  () => {
+    dataMenuNodeEdit.reset();
   },
   { immediate: true }
 );

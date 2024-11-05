@@ -1,5 +1,5 @@
 <template>
-  <div class="menuManage">
+  <div class="menuManage h-[var(--sub-app-container-height)] lt-md:(justify-center h-full)">
     <section class="left">
       <div class="btn-div">
         <el-button class="btn" type="primary" size="small" @click="dataMenuNodeEdit.edit()">新增节点</el-button>
@@ -46,7 +46,8 @@
         </el-tree>
       </el-scrollbar>
     </section>
-    <section class="right">
+
+    <section v-if="isDesktop" class="right">
       <MenuNodeView
         v-if="dataMenuNodeView.show"
         :nodeData="dataMenuNodeView.nodeData"
@@ -56,9 +57,44 @@
         :nodeData="dataMenuNodeEdit.nodeData"
         :nodeTreeData="dataMenuManage.menuTreeData"
         @success="dataMenuNodeEdit.success()"
+        @cancel="dataMenuNodeEdit.show = false"
       />
       <span v-if="!dataMenuNodeView.show && !dataMenuNodeEdit.show" class="text-readonly">点击左侧节点进行操作</span>
     </section>
+    <template v-else-if="isPhone">
+      <!-- 详情预览弹窗 -->
+      <MicroComponent
+        _is="ElDialog"
+        v-model="dataMenuNodeView.show"
+        title="节点详情查看"
+      >
+        <!-- //TODO, bug: 该组件下的element组件需要显式导入 -->
+        <MenuNodeView
+          v-if="dataMenuNodeView.show"
+          :nodeData="dataMenuNodeView.nodeData"
+        />
+        <template #footer>
+          <el-button type="default" size="default" @click="dataMenuNodeView.cancel()">关闭</el-button>
+        </template>
+      </MicroComponent>
+
+      <!-- 新增/编辑弹窗 -->
+      <MicroComponent
+        _is="ElDialog"
+        v-model="dataMenuNodeEdit.show"
+        title="节点编辑"
+      >
+        <!-- //TODO, bug: 该组件下的element组件需要显式导入 -->
+        <MenuNodeEdit
+          v-if="dataMenuNodeEdit.show"
+          :nodeData="dataMenuNodeEdit.nodeData"
+          :nodeTreeData="dataMenuManage.menuTreeData"
+          @success="dataMenuNodeEdit.success()"
+          @cancel="dataMenuNodeEdit.show = false"
+        />
+      </MicroComponent>
+    </template>
+    
   </div>
 </template>
 
@@ -69,6 +105,8 @@ import MenuNodeView from './components/MenuNodeView.vue';
 import { deleteMenu, getMenuTree } from '@/api/menu';
 import { onMounted } from 'vue';
 import { ElMessage, ElMessageBox } from 'element-plus';
+import MicroComponent from 'micro-app-tools/vue3/MicroComponent.vue';
+import { isDesktop, isPhone } from '@/hooks';
 
 ///////////////////////////////// 当前组件数据 ///////////////////////////////
 const dataMenuManage = shallowReactive({
@@ -96,6 +134,9 @@ const dataMenuNodeView = shallowReactive({
     dataMenuNodeEdit.show = false;
     this.nodeData = nodeData;
     this.show = true;
+  },
+  cancel() {
+    this.show = false;
   },
 });
 
@@ -126,7 +167,7 @@ const dataMenuNodeEdit = shallowReactive({
   success() {
     dataMenuManage.getMenuTree();
     dataMenuNodeEdit.show = false;
-    dataMenuNodeView.view(this.nodeData);
+    if (isDesktop) dataMenuNodeView.view(this.nodeData);
   },
 });
 </script>
@@ -134,12 +175,10 @@ const dataMenuNodeEdit = shallowReactive({
 <style lang="scss" scoped>
 .menuManage {
   display: flex;
-  height: var(--sub-app-container-height);
   background-color: white;
   overflow: hidden;
   .left {
     flex-basis: calc(10% + 300px);
-    flex-shrink: 0;
     .btn-div {
       height: 40px;
       display: flex;

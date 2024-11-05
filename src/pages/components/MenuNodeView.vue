@@ -30,6 +30,7 @@
 </template>
 
 <script lang="ts" setup>
+import { ElForm, ElFormItem } from 'element-plus';
 
 const props  = defineProps({
     nodeData: {
