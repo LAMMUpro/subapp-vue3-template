@@ -32,8 +32,8 @@
       <!-- 0-主应用, 1-子应用, 2-外链, 3-父级菜单, 4-权限按钮 -->
       <el-form-item label="节点类型：" prop="targetType">
         <el-radio-group v-model="dataMenuNodeEdit.nodeData.targetType">
-          <el-radio :value="0">主应用</el-radio>
-          <el-radio :value="1">子应用</el-radio>
+          <el-radio :value="0">主应用页面</el-radio>
+          <el-radio :value="1">子应用页面</el-radio>
           <el-radio :value="2">外链链接</el-radio>
           <el-radio :value="3">父级菜单</el-radio>
           <el-radio :value="4">权限按钮</el-radio>

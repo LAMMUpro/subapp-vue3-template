@@ -12,8 +12,12 @@
       </el-form-item>
 
       <!-- 0-主应用, 1-子应用, 2-外链, 3-父级菜单, 4-权限按钮 -->
-      <el-form-item label="路径：" v-if="[0, 1, 2].includes(props.nodeData.targetType)">
+      <el-form-item label="路由路径：" v-if="[0, 1, 2].includes(props.nodeData.targetType)">
         <span class="text-readonly">{{ props.nodeData.path }}</span>
+      </el-form-item>
+
+      <el-form-item label="组件路径：" v-if="[0, 1].includes(props.nodeData.targetType)">
+        <span class="text-readonly">{{ props.nodeData.componentStr }}</span>
       </el-form-item>
 
       <el-form-item label="图标：">
