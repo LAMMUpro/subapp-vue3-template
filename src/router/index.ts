@@ -49,6 +49,12 @@ const demoRoutes: Array<RouteRecordRaw> = [
     meta: {},
   },
   {
+    path: '/demo/frame-less-ui',
+    name: 'frameLessUI',
+    component: () => import('@/pages/demo/frameLessUI.vue'),
+    meta: { title: 'frame-less-ui组件库测试' },
+  },
+  {
     path: `/home`,
     name: `home`,
     component: () => import('@/pages/home.vue'),
