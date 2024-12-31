@@ -1,3 +1,5 @@
+import { isSubApp } from 'micro-app-tools';
+
 /** 检查是否移动端 */
 export let isMobile = () => {
   const pattern = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|OperaMini/i;
@@ -103,4 +105,44 @@ export function getLottieJsonLink(
   name: string
 ) {
   return `/micromain/lottie/${name}.json`;
+}
+
+/**
+ * 子应用打开链接（兼容微前端子应用直接跳转）
+ * ps: target为_self时，不要使用此方法打开本应用的页面
+ * @example openLink('https://micro-admin-template.lammu.cn/micromain/')
+ * @example openLink('/vue3/#/xxx')
+ */
+export function openLink(
+  /** 目标地址，相对路径 或 完整url(能相对就用相对)，例如/vue3/#/xxx */
+  link: string,
+  /** 打开方式 */
+  target: '_blank'|'_self' = '_blank',
+) {
+  /** 
+   * 微前端环境下，处理当前标签页跳转其它子应用
+   */
+  if (target === '_self' && isSubApp && !isExternal(link)) {
+    const subAppPrefix = link.match(/^\/(.*?)\//)?.[1];
+    const subAppName = subAppPrefix && window._subAppSettingList_?.find(item => item.name === subAppPrefix)?.name;
+    if (subAppName) {
+      const mainAppRouter = window.microApp?.router.getBaseAppRouter();
+      if (mainAppRouter?.push) {
+        mainAppRouter.push({ 
+          path: `/${subAppName}`,
+          query: {
+            [subAppName]: link,
+          }
+        });
+        return;
+      }
+    }
+  }
+  const label = document.createElement('a');
+  label.rel = 'opener';
+  label.href = link;
+  label.target = target;
+  document.body.appendChild(label);
+  label.click();
+  document.body.removeChild(label);
 }
