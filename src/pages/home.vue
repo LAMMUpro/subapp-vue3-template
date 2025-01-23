@@ -6,12 +6,12 @@
     >
       <MicroComponent
         _is="Lottie"
-        width="100%"
-        height="100%"
+        width="50%"
+        height="50%"
         :animation-link="getLottieJsonLink('front')"
       ></MicroComponent>
 
-      <div>vue3子应用首页，👆lottie图标</div>
+      <div>vue3子应用首页</div>
     </section>
   </div>
 </template>

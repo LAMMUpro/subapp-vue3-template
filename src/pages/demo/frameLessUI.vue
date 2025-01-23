@@ -1,45 +1,32 @@
 <template>
   <div class="">
     <section class="-m-card">
-      <h2 class="-m-title">paging-select(分页选择器)</h2>
-      <fl-paging-select
-        :id="info.id"
-        @update-id="info.id = $event.detail[0]"
-        :label="info.name"
-        @update-label="info.name = $event.detail[0]"
+      <h2 class="-m-title">vue3使用fl-paging-select</h2>
+      <fl-paging-select-v3
+        v-model:value="info.id"
+        v-model:label="info.name"
         :api="api"
         immediate
         :optionSetting="{ label: 'name', id: 'id' }"
         style="width: 300px"
       >
-      </fl-paging-select>
+      </fl-paging-select-v3>
       <div class="mt-3">{{ info }}</div>
     </section>
 
     <section class="-m-card">
-      <h2 class="-m-title">button(按钮)</h2>
-      <fl-button type="primary">普通按钮</fl-button>
-      <fl-button
-        class="ml-1"
-        type="success"
-        >成功按钮</fl-button
-      >
-      <fl-button
-        class="ml-1"
-        type="warning"
-        >警告按钮</fl-button
-      >
-      <fl-button
-        class="ml-1"
-        type="danger"
-        >危险按钮</fl-button
-      >
+      <h2 class="-m-title">vue3使用fl-qr-code</h2>
+      <fl-qr-code-v3
+        text="https://micro-admin-template.lammu.cn/micromain/demo/frame-less-ui"
+      ></fl-qr-code-v3>
     </section>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from 'vue';
+import FlPagingSelectV3 from 'frame-less-ui/vue3/paging-select';
+import FlQrCodeV3 from 'frame-less-ui/vue3/qr-code';
 
 const info = reactive({
   id: '4',
